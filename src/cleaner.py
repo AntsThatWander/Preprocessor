@@ -56,14 +56,3 @@ class ArticleCleaner():
   
   def __clean_data_spaces(self):
     self.target_data[self.target_data_col_name] = self.target_data[self.target_data_col_name].apply(lambda x: ' '.join(x.split())) 
-
-if __name__ == '__main__':
-    ac_first = ArticleCleaner(
-      target_data_path='../../Data/news_data-1016-TFIDF.csv',
-      regex_data_paths=['./regex-dot.json', './regex-zip.json'],
-      target_data_col_name='content',
-      repl_patterns=[r' \1', ' '],
-      save_path='./result.csv',
-      debug=True
-    )
-    ac_first.run()
